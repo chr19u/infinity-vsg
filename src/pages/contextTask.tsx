@@ -23,39 +23,46 @@ const ContextTask: NextPage = () => {
               }
             >
               <h1 className={styles.title}>Kontext Re-Renderings</h1>
+
               <p className={styles.task}>
-                <b>Ausgangslage:</b> Die <code>translate()</code> Funktion kann
-                momentan von überall direkt importiert und verwendet werden.
-                Diese verwendet wiederum die veraltete Funktion{" "}
-                <code>getCurrentLanguage()</code> um die aktuelle Sprache
-                auszulesen.
+                <b>Ausgangslage:</b> Der <code>DataContext</code> liefert das
+                «Picture of the day», welches von einer API zufällig generiert
+                wird. Bei der aktuellen Implementation wird das Bild beim
+                Neuladen der Seite immer zweimal geladen, was ziemlich unschön
+                ist.
                 <br />
                 <br />
-                <b>Aufgabe:</b> Neu möchten wir{" "}
-                <code>getCurrentLanguage()</code> entfernen und die aktuelle
-                Sprache mit dem <code>useLocalization()</code> Hook auslesen.
-                Erstelle dafür einen neuen React Hook, welcher die{" "}
-                <code>translate()</code> Funktion bereitstellt.
+                <b>Aufgabe:</b> Um unsere APIs zu entlasten, soll das Bild nur
+                noch 1x geladen und angezeigt werden. Bonus: Ich kann per{" "}
+                <Link
+                  href={`/contextTask?url=${encodeURIComponent(
+                    "https://cdn2.thecatapi.com/images/72c.jpg"
+                  )}`}
+                >
+                  Link
+                </Link>{" "}
+                direkt eine <code>url</code> als Query-Parameter übergeben,
+                welche angezeigt werden soll oder ein{" "}
+                <Link href={`/contextTask?random=${Date.now()}`}>
+                  random Bild
+                </Link>{" "}
+                anzeigen.
               </p>
+
               <h2>Picture of the day</h2>
+
               <img
                 src={pictureOfTheDay?.url}
                 height={400}
-                style={{
-                  aspectRatio: `${pictureOfTheDay?.width} / ${pictureOfTheDay?.height}`,
-                }}
-                alt="A cat minding their business"
+                style={
+                  pictureOfTheDay?.width && pictureOfTheDay?.width
+                    ? {
+                        aspectRatio: `${pictureOfTheDay.width} / ${pictureOfTheDay.height}`,
+                      }
+                    : {}
+                }
               />
-              <br />
-              <Link
-                href={`/contextTask?url=${encodeURIComponent(
-                  "https://cdn2.thecatapi.com/images/72c.jpg"
-                )}`}
-              >
-                Two Cats
-              </Link>{" "}
-              | <Link href={`/contextTask`}>Random Cats</Link>
-              <br />
+
               <br />
               <button onClick={() => toggleTheme()}>Toggle Theme</button>
             </main>

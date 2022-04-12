@@ -18,6 +18,7 @@ const LocalizationTask: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Translation Hook</h1>
+
         <p className={styles.task}>
           <b>Ausgangslage:</b> Die <code>translate()</code> Funktion kann
           momentan von überall direkt importiert und verwendet werden. Diese

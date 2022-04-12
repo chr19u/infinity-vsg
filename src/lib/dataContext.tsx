@@ -6,6 +6,8 @@ import React, {
   ReactNode,
   useEffect,
   useState,
+  useCallback,
+  useMemo,
 } from "react";
 import { fetchRandomPicture, Picture } from "./fetchRandomPicture";
 import {
@@ -33,7 +35,6 @@ export const DataContextProvider: FunctionComponent<{ children: ReactNode }> =
     const { query } = useRouter();
 
     const toggleTheme = () => setTheme(theme !== "light" ? "light" : "dark");
-    console.log("data context provider");
 
     useEffect(() => {
       if (query.url) {
