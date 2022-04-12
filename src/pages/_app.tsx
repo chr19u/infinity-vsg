@@ -1,13 +1,12 @@
 import "../styles/globals.css";
 import type { AppContext, AppProps } from "next/app";
-import {
-  getRandomCountry,
-  getRandomLanguage,
-  getRandomLocale,
-} from "../public/lib/language";
-import { LocalizationContextProvider } from "../public/lib/localization";
-import { useRouter } from "next/router";
+
+import { getRandomCountry, getRandomLanguage } from "../lib/language";
+import { LocalizationContextProvider } from "../lib/localization";
 import App from "next/app";
+import React from "react";
+import Link from "next/link";
+import styles from "../styles/page.module.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -16,6 +15,18 @@ function MyApp({ Component, pageProps }: AppProps) {
       language={pageProps.language}
     >
       <Component {...pageProps} />
+
+      <footer className={styles.footer}>
+        <div className={styles.grid}>
+          <Link href="/localization" passHref>
+            <h2 className={styles.card}>Localization Task</h2>
+          </Link>
+
+          <Link href="/task2" passHref>
+            <h2 className={styles.card}>Task 2</h2>
+          </Link>
+        </div>
+      </footer>
     </LocalizationContextProvider>
   );
 }
