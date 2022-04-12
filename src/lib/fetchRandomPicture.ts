@@ -6,7 +6,6 @@ export interface Picture {
 }
 
 export const fetchRandomPicture = async () => {
-  console.log("fetch me");
   const result = await fetch(
     "https://api.thecatapi.com/v1/images/search?size=full&limit=1",
     {

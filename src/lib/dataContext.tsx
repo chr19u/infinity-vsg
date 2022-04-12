@@ -18,14 +18,22 @@ import {
 
 export const DataContext = createContext<{
   pictureOfTheDay: Picture | undefined;
+  toggleTheme: () => void;
+  theme: "light" | "dark";
 }>({
   pictureOfTheDay: undefined,
+  toggleTheme: () => {},
+  theme: "light",
 });
 
 export const DataContextProvider: FunctionComponent<{ children: ReactNode }> =
   ({ children }) => {
     const [pictureOfTheDay, setPictureOfTheDay] = useState<Picture>();
+    const [theme, setTheme] = useState<"light" | "dark">("light");
     const { query } = useRouter();
+
+    const toggleTheme = () => setTheme(theme !== "light" ? "light" : "dark");
+    console.log("data context provider");
 
     useEffect(() => {
       if (query.url) {
@@ -39,6 +47,8 @@ export const DataContextProvider: FunctionComponent<{ children: ReactNode }> =
       <DataContext.Provider
         value={{
           pictureOfTheDay,
+          toggleTheme,
+          theme,
         }}
       >
         {children}
