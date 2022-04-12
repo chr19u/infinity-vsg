@@ -5,7 +5,7 @@ import { useLocalization } from "../lib/localization";
 import { translate } from "../lib/translation";
 import styles from "../styles/page.module.css";
 
-const Home: NextPage = () => {
+const LocalizationTask: NextPage = () => {
   const { locale } = useLocalization();
   const globalLanguage = getCurrentLanguage();
 
@@ -17,7 +17,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Localization Hook</h1>
+        <h1 className={styles.title}>Translation Hook</h1>
         <p className={styles.task}>
           <b>Ausgangslage:</b> Die <code>translate()</code> Funktion kann
           momentan von überall direkt importiert und verwendet werden. Diese
@@ -43,4 +43,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default LocalizationTask;

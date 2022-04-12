@@ -18,12 +18,12 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       <footer className={styles.footer}>
         <div className={styles.grid}>
-          <Link href="/localization" passHref>
-            <h2 className={styles.card}>Localization Task</h2>
+          <Link href="/localizationTask" passHref>
+            <h2 className={styles.card}>Translation Hook</h2>
           </Link>
 
-          <Link href="/task2" passHref>
-            <h2 className={styles.card}>Task 2</h2>
+          <Link href="/contextTask" passHref>
+            <h2 className={styles.card}>Kontext Re-Rendering</h2>
           </Link>
         </div>
       </footer>
