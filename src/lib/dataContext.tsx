@@ -38,8 +38,10 @@ export const DataContextProvider: FunctionComponent<{ children: ReactNode }> =
 
     useEffect(() => {
       if (query.url) {
+        // render specific image
         setPictureOfTheDay({ url: query.url as string });
       } else {
+        // render random image
         fetchRandomPicture().then((pic) => setPictureOfTheDay(pic));
       }
     }, []);

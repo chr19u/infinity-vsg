@@ -33,20 +33,7 @@ const ContextTask: NextPage = () => {
                 <br />
                 <br />
                 <b>Aufgabe:</b> Um unsere APIs zu entlasten, soll das Bild nur
-                noch 1x geladen und angezeigt werden. Bonus: Ich kann per{" "}
-                <Link
-                  href={`/contextTask?url=${encodeURIComponent(
-                    "https://cdn2.thecatapi.com/images/72c.jpg"
-                  )}`}
-                >
-                  Link
-                </Link>{" "}
-                direkt eine <code>url</code> als Query-Parameter übergeben,
-                welche angezeigt werden soll oder ein{" "}
-                <Link href={`/contextTask?random=${Date.now()}`}>
-                  random Bild
-                </Link>{" "}
-                anzeigen.
+                noch 1x geladen und angezeigt werden.
               </p>
 
               <h2>Picture of the day</h2>
